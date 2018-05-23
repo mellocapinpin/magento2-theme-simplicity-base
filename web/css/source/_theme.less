@@ -5,7 +5,7 @@
 
 //
 //  Blank theme overrides
-//  _____________________________________________
+//  ---------------------------------------------
 
 //  Theme file should contain declarations (overrides) ONLY OF EXISTING variables
 //  Otherwise this theme won't be available for parent nesting
@@ -13,9 +13,32 @@
 
 //
 //  Common
-//  _____________________________________________
+//  ---------------------------------------------
 
 & when (@media-common = true) {
+    .page-header {
+        .header.content {
+            padding: @indent__base;
+            .logo {
+                float: none;
+                margin: 0;
+                max-width: 100%;
+            }
+            .minicart-wrapper {
+                float: none;
+                margin: 0;
+            }
+            .block-search {
+                float: none;
+                margin: 0;
+                padding: 0;
+
+                .control {
+                    border-top: none;
+                }
+            }
+        }
+    }
     .page-footer {
         .block {
             .block-title {
@@ -49,8 +72,41 @@
 }
 
 //
+//  Mobile
+//  ---------------------------------------------
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .page-header {
+        .header.content {
+            display: grid;
+            grid-template-columns: 28px 1fr 35px 35px;
+            grid-template-areas: "toggle logo search cart";
+            grid-gap: @indent__s;
+
+            .nav-toggle {
+                position: relative;
+                top: auto;
+                left: auto;
+                grid-area: toggle;
+            }
+            .logo {
+                grid-area: logo;
+            }
+            .minicart-wrapper {
+                grid-area: cart;
+            }
+            .block-search {
+                grid-area: search;
+            }
+            .block-search .control {
+                margin: 0 -15px 0 -150px;
+            }
+        }
+    }
+}
+
+//
 //  Desktop
-//  _____________________________________________
+//  ---------------------------------------------
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
     .page-header {
@@ -75,6 +131,25 @@
                 }
             }
         }
+        .header.content {
+            display: grid;
+            grid-template-columns: minmax(auto, 200px) 1fr minmax(auto, 250px) 35px;
+            grid-template-areas: "logo blank search cart";
+            grid-gap: @indent__s;
+
+            .nav-toggle {
+                display: none;
+            }
+            .logo {
+                grid-area: logo;
+            }
+            .minicart-wrapper {
+                grid-area: cart;
+            }
+            .block-search {
+                grid-area: search;
+            }
+        }
     }
     .nav-sections {
         a.level-top {
@@ -89,23 +164,20 @@
             display: grid;
             grid-gap: 20px;
             grid-template-columns: 1fr 1fr 1fr 30%;
+            grid-template-areas: "account features contact newsletter";
         }
         .block.newsletter {
-            grid-column: 4;
-            grid-row: 1;
+            grid-area: newsletter;
             width: auto;
         }
         .block.static-account {
-            grid-column: 1;
-            grid-row: 1;
+            grid-area: account;
         }
         .block.static-features {
-            grid-column: 2;
-            grid-row: 1;
+            grid-area: features;
         }
         .block.static-contact {
-            grid-column: 3;
-            grid-row: 1;
+            grid-area: contact;
         }
         .copyright {
             grid-column: ~"1 / -1";
