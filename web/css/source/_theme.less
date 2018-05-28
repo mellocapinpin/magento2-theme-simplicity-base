@@ -18,7 +18,7 @@
 & when (@media-common = true) {
     .page-header {
         .header.content {
-            padding: @indent__base;
+            padding: @layout-indent__width;
             .logo {
                 float: none;
                 margin: 0;
@@ -51,10 +51,10 @@
         .block {
             .block-title {
                 line-height: @line-height__base;
-                margin-bottom: @indent__base;
+                margin-bottom: @layout-indent__width;
 
                 strong {
-                    font-family: @font-family__oswald;
+                    font-family: @font-family__primary;
                     font-weight: @font-weight__regular;
                     font-size: @font-size__l;
                     text-transform: uppercase;
@@ -64,7 +64,7 @@
                 font-size: @font-size__base;
 
                 strong {
-                    font-family: @font-family__oswald;
+                    font-family: @font-family__primary;
                     font-weight: @font-weight__light;
                 }
                 li {
@@ -120,12 +120,12 @@
     .page-header {
         .panel.wrapper {
             border: 0;
-            background-color: #f0f0f0;
+            background-color: @header-panel__background-color;
         }
         .panel.header {
             ul.links {
                 li {
-                    font-family: @font-family__oswald;
+                    font-family: @font-family__primary;
                     font-weight: @font-weight__light;
                     font-size: @font-size__base;
                     text-transform: uppercase;
@@ -161,10 +161,11 @@
     }
     .nav-sections {
         a.level-top {
-            font-family: @font-family__oswald;
+            font-family: @font-family__primary;
             font-weight: @font-weight__light;
             font-size: @font-size__base;
             text-transform: uppercase;
+            display: block;
         }
     }
     .page-footer {

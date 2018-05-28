@@ -5,21 +5,37 @@
 
 //
 //  Theme variables
-//  _____________________________________________
-@primary__color: @color-gray20;
-@secondary__color: @color-gray94;
-@color-light: @color-white;
-@color-dark: @color-black;
+//  ---------------------------------------------
+@pallete-color_1: #2d2f33;
+@pallete-color_2: #66676a;
+@pallete-color_3: #b2b3b4;
+@pallete-color_4: #d8d9d9;
+@pallete-color_5: #f5f6f8;
 
-@page__background-color: @color-light;
-@header__background-color: false;
-@footer__background-color: false;
+@primary__color: @pallete-color_1;
+@secondary__color: @pallete-color_2;
 
-@text__color: @color-dark;
+@text__color: @color-gray20;
 @link__color: @color-blue2;
+
+@page__background-color: @color-white;
+
+@header__background-color: false;
+@header-panel__background-color: @secondary__color;
+@header-panel__text-color: @text__color;
+@header-icons-color: @text__color;
+@header-icons-color-hover: @link__color;
+
+@footer__background-color: false;
 
 @border-color__base: @secondary__color;
 @border-width__base: 1px;
+
+//
+//  Layout variables
+//  ---------------------------------------------
+@layout__max-width: 1155px;
+@layout-indent__width: 15px;
 
 //
 //  Typography
@@ -36,11 +52,11 @@
 //  ---------------------------------------------
 
 //  Default = secondary button
-@button__color: @color-dark;
-@button__background: darken(@secondary__color, 15%);
+@button__color: lighten(@secondary__color, 25%);
+@button__background: @secondary__color;
 @button__border: 1px solid darken(@button__background, 15%);
 
-@button__hover__color: @button__color;
+@button__hover__color: @primary__color;
 @button__hover__background: lighten(@button__background, 25%);
 
 @button__active__color: @button__hover__color;
@@ -50,14 +66,16 @@
 @button__font-weight: @font-weight__regular;
 
 //  Primary button
-@button-primary__color: @color-light;
-@button-primary__background: darken(@button__background, 50%);
+@button-primary__color: @button__color;
+@button-primary__background: @primary__color;
 @button-primary__border: 1px solid darken(@button-primary__background, 15%);
 
 @button-primary__hover__color: @button__hover__color;
 @button-primary__hover__background: @button__hover__background;
 @button-primary__hover__border: @button__border;
 
+@button-primary__active__color: @button-primary__hover__color;
+@button-primary__active__background: @button-primary__hover__background;
 //
 //  Sidebar
 //  ---------------------------------------------
