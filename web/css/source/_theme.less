@@ -54,13 +54,15 @@
                 margin-bottom: @layout-indent__width;
 
                 strong {
+                    color: @footer-block__title-color;
                     font-family: @font-family__primary;
-                    font-weight: @font-weight__regular;
-                    font-size: @font-size__l;
+                    font-weight: @font-weight__light;
+                    font-size: @font-size__base;
                     text-transform: uppercase;
                 }
             }
             .block-content {
+                color: @footer-block__content-color;
                 font-size: @font-size__base;
 
                 strong {
@@ -72,9 +74,16 @@
                     line-height: @line-height__l;
                 }
                 a {
-                    color: inherit;
+                    color: @footer-link__color;
+                    &:hover {
+                        color: @footer-link__hover__color;
+                    }
                 }
             }
+        }
+        .copyright {
+            color: @footer-copyright__color;
+            background-color: @footer-copyright__background-color;
         }
     }
 }
@@ -120,7 +129,8 @@
     .page-header {
         .panel.wrapper {
             border: 0;
-            background-color: @header-panel__background-color;
+            .lib-css(background-color, @header-panel__background-color);
+            .lib-css(color, @header-panel__text-color);
         }
         .panel.header {
             ul.links {
@@ -131,11 +141,16 @@
                     text-transform: uppercase;
                 }
                 a {
-                    color: inherit;
-
-                    &:hover {
-                        color: @link__color;
-                    }
+                    .lib-link(
+                    @_link-color: @header-panel__text-color,
+                    @_link-text-decoration: none,
+                    @_link-color-visited: @header-panel__text-color,
+                    @_link-text-decoration-visited: none,
+                    @_link-color-hover: @header-panel__text-color,
+                    @_link-text-decoration-hover: underline,
+                    @_link-color-active: @header-panel__text-color,
+                    @_link-text-decoration-active: underline
+                    );
                 }
             }
         }
@@ -160,6 +175,8 @@
         }
     }
     .nav-sections {
+        .lib-css(background, @navigation-desktop__background__wide);
+
         a.level-top {
             font-family: @font-family__primary;
             font-weight: @font-weight__light;
